@@ -12,6 +12,12 @@ import data
 
 # Part 1: vowel_count
 def vowel_count(text: str) -> int:
+    vowelCounter = 0 #accumulator for vowels
+    for i in text: #goes through the text letter by letter
+        if i.lower() in ("a", "e", "i", "o", "u"): #checks if the letter is a vowel
+            vowelCounter += 1 # if there is a vowel increase the counter by 1
+    return vowelCounter # return the amount of values in the string 
+
     # TODO: Purpose: describe what this function computes.
     # TODO: Input(s): explain each parameter.
     # TODO: Output: explain what the function returns.
@@ -21,6 +27,12 @@ def vowel_count(text: str) -> int:
 
 # Part 2: short_lists
 def short_lists(items: list[list[int]]) -> list[list[int]]:
+    actualShortList = [] #creates a new list for the passing nested lists to go to
+    for i in items: # goes through each nested list
+        if len(i) ==2: # checks if the list has a length of 2 items
+            actualShortList.append(i) # appends the list to the new variable
+    return actualShortList # returns the lists that had a length of 2
+
     # TODO: Purpose: describe what this function computes.
     # TODO: Input(s): explain each parameter.
     # TODO: Output: explain what the function returns.
@@ -30,6 +42,16 @@ def short_lists(items: list[list[int]]) -> list[list[int]]:
 
 # Part 3: ascending_pairs
 def ascending_pairs(items: list[list[int]]) -> list[list[int]]:
+    newListPair = []
+    for row in items:
+        if len(row) == 2 and row[0] > row[1]:
+            tempList = [row[1],row[0]]
+            newListPair.append(tempList)
+        else:
+            newListPair.append(row)
+    return newListPair
+
+        
     # TODO: Purpose: describe what this function computes.
     # TODO: Input(s): explain each parameter.
     # TODO: Output: explain what the function returns.
@@ -39,6 +61,7 @@ def ascending_pairs(items: list[list[int]]) -> list[list[int]]:
 
 # Part 4: add_prices
 def add_prices(first: data.Price, second: data.Price) -> data.Price:
+
     # TODO: Purpose: describe what this function computes.
     # TODO: Input(s): explain each parameter.
     # TODO: Output: explain what the function returns.
