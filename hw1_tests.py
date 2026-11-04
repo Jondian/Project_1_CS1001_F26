@@ -45,16 +45,17 @@ class TestHomework1(unittest.TestCase):
     def test_ascending_pairs_other_lengths_unchanged(self):
         # TODO: Arrange inputs, call hw1.ascending_pairs, and assert the result.
         self.assertEqual(hw1.ascending_pairs([[6,3],[6,5,2],[9,2],[4,5,2]]),[[3,6],[6,5,2],[2,9],[4,5,2]])
-'''
+
     # Part 4: add_prices
     def test_add_prices_no_cents_carry(self):
         # TODO: Arrange inputs, call hw1.add_prices, and assert the result.
-        self.fail("TODO: write the first unit test for add_prices")
+        self.assertEqual(hw1.add_prices(data.Price(3,45),data.Price(2,45)),data.Price(5,90))
 
     def test_add_prices_with_cents_carry(self):
         # TODO: Arrange inputs, call hw1.add_prices, and assert the result.
-        self.fail("TODO: write the second unit test for add_prices")
+        self.assertEqual(hw1.add_prices(data.Price(3,45),data.Price(2,65)),data.Price(6,10))
 
+'''
     # Part 5: rectangle_area
     def test_rectangle_area_standard_rectangle(self):
         # TODO: Arrange inputs, call hw1.rectangle_area, and assert the result.

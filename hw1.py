@@ -60,6 +60,13 @@ def ascending_pairs(items: list[list[int]]) -> list[list[int]]:
 
 # Part 4: add_prices
 def add_prices(first: data.Price, second: data.Price) -> data.Price:
+    totalDollar = first.dollars + second.dollars
+    totalCents = first.cents + second.cents
+    if totalCents >= 100:
+        totalCents -= 100
+        totalDollar += 1
+    return data.Price(totalDollar,totalCents)
+
 
     # TODO: Purpose: describe what this function computes.
     # TODO: Input(s): explain each parameter.
