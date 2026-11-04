@@ -27,9 +27,9 @@ def vowel_count(text: str) -> int:
 
 # Part 2: short_lists
 def short_lists(items: list[list[int]]) -> list[list[int]]:
-    actualShortList = [] #creates a new list for the passing nested lists to go to
-    for i in items: # goes through each nested list
-        if len(i) ==2: # checks if the list has a length of 2 items
+    actualShortList = []    #creates a new list for the passing nested lists to go to
+    for i in items:     # goes through each nested list
+        if len(i) == 2: # checks if the list has a length of 2 items
             actualShortList.append(i) # appends the list to the new variable
     return actualShortList # returns the lists that had a length of 2
 
@@ -39,17 +39,16 @@ def short_lists(items: list[list[int]]) -> list[list[int]]:
     # TODO: Replace this exception with your implementation.
     raise NotImplementedError("Part 2: implement short_lists")
 
-
 # Part 3: ascending_pairs
 def ascending_pairs(items: list[list[int]]) -> list[list[int]]:
-    newListPair = []
-    for row in items:
-        if len(row) == 2 and row[0] > row[1]:
-            tempList = [row[1],row[0]]
-            newListPair.append(tempList)
-        else:
-            newListPair.append(row)
-    return newListPair
+    newListPair = [] #new list for function to return
+    for row in items: #checks the nested lists, AKA "rows"
+        if len(row) == 2 and row[0] > row[1]: #checks if the list is a pair and is descending
+            tempList = [row[1],row[0]] # changes the descending pair into a non-descending pair
+            newListPair.append(tempList) # appends the non-descending pair to new List
+        else: #  if the list length isnt equal to 2 or the pair is non-descending
+            newListPair.append(row) # appends list to the new list
+    return newListPair # returns the new list
 
         
     # TODO: Purpose: describe what this function computes.
