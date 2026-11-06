@@ -55,7 +55,7 @@ def ascending_pairs(items: list[list[int]]) -> list[list[int]]:
     # TODO: Input(s): explain each parameter.
     # TODO: Output: explain what the function returns.
     # TODO: Replace this exception with your implementation.
-    raise NotImplementedError("Part 3: implement ascending_pairs")
+    raise NotImplementedError("Part 3:implement ascending_pairs")
 
 
 # Part 4: add_prices
@@ -77,6 +77,7 @@ def add_prices(first: data.Price, second: data.Price) -> data.Price:
 
 # Part 5: rectangle_area
 def rectangle_area(rectangle: data.Rectangle) -> float:
+    return rectangle.bottom_right * rectangle.top_left
     # TODO: Purpose: describe what this function computes.
     # TODO: Input(s): explain each parameter.
     # TODO: Output: explain what the function returns.
