@@ -8,7 +8,7 @@ explaining its purpose, input(s), and output. You may write helper functions.
 """
 
 import data
-
+from math import sqrt
 
 # Part 1: vowel_count
 def vowel_count(text: str) -> int:
@@ -77,7 +77,9 @@ def add_prices(first: data.Price, second: data.Price) -> data.Price:
 
 # Part 5: rectangle_area
 def rectangle_area(rectangle: data.Rectangle) -> float:
-    return rectangle.bottom_right * rectangle.top_left
+    height = rectangle.top_left.y - rectangle.bottom_right.y
+    width = rectangle.bottom_right.x - rectangle.top_left.x
+    return sqrt((height * width) ** 2 )
     # TODO: Purpose: describe what this function computes.
     # TODO: Input(s): explain each parameter.
     # TODO: Output: explain what the function returns.
@@ -87,6 +89,13 @@ def rectangle_area(rectangle: data.Rectangle) -> float:
 
 # Part 6: books_by_author
 def books_by_author(author: str, books: list[data.Book]) -> list[data.Book]:
+    bookList = []
+    for i in books:
+        for authorName in i.authors:
+            if authorName == author:
+                bookList.append(i.title)
+    return bookList
+                
     # TODO: Purpose: describe what this function computes.
     # TODO: Input(s): explain each parameter.
     # TODO: Output: explain what the function returns.
@@ -96,12 +105,16 @@ def books_by_author(author: str, books: list[data.Book]) -> list[data.Book]:
 
 # Part 7: circle_bound
 def circle_bound(rectangle: data.Rectangle) -> data.Circle:
+    rectangleCenterX = rectangle.top_left.x + ((rectangle.bottom_right.x - rectangle.top_left.x)/2)
+    rectangleCenterY = rectangle.bottom_right.y + ((rectangle.top_left.y - rectangle.bottom_right.y)/2)
+    diameter = sqrt(((rectangle.bottom_right.x - rectangle.top_left.x)**2) + ((rectangle.bottom_right.y - rectangle.top_left.y)**2))
+
+    return data.Circle((rectangleCenterX, rectangleCenterY), diameter/2)
     # TODO: Purpose: describe what this function computes.
     # TODO: Input(s): explain each parameter.
     # TODO: Output: explain what the function returns.
     # TODO: Replace this exception with your implementation.
     raise NotImplementedError("Part 7: implement circle_bound")
-
 
 # Part 8: below_pay_average
 def below_pay_average(employees: list[data.Employee]) -> list[str]:
