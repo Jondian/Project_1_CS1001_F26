@@ -117,8 +117,13 @@ class TestHomework1(unittest.TestCase):
 
     def test_circle_bound_non_square_rectangle(self):
         # TODO: Arrange inputs, call hw1.circle_bound, and assert the result.
-        self.fail("TODO: write the second unit test for circle_bound")
-
+        point1 = data.Point(3,4)
+        point2 = data.Point(7,2)
+        rectangleExample = data.Rectangle(point1, point2)
+        result = hw1.circle_bound(rectangleExample)
+        self.assertEqual(result.center,(5,3))
+        self.assertAlmostEqual(result.radius, 2.2360679775)  
+'''
     # Part 8: below_pay_average
     def test_below_pay_average_different_pay_rates(self):
         # TODO: Arrange inputs, call hw1.below_pay_average, and assert the result.
@@ -128,6 +133,6 @@ class TestHomework1(unittest.TestCase):
         # TODO: Arrange inputs, call hw1.below_pay_average, and assert the result.
         self.fail("TODO: write the second unit test for below_pay_average")
 
-
+'''
 if __name__ == '__main__':
     unittest.main()
