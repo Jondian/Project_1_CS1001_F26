@@ -18,16 +18,16 @@ def vowel_count(text: str) -> int:
             vowelCounter += 1 # if there is a vowel increase the counter by 1
     return vowelCounter # return the amount of values in the string 
 
-    # TODO: Purpose: describe what this function computes.
-    # TODO: Input(s): explain each parameter.
-    # TODO: Output: explain what the function returns.
+    # TODO: Purpose: counts vowels in a given string
+    # TODO: Input(s): text is a string given
+    # TODO: Output: returns the amount of vowls in the text
     # TODO: Replace this exception with your implementation.
     raise NotImplementedError("Part 1: implement vowel_count")
 
 
 # Part 2: short_lists
 def short_lists(items: list[list[int]]) -> list[list[int]]:
-    actualShortList = []    #creates a new list for the passing nested lists to go to
+    actualShortList = []    # creates a new list for the passing nested lists to go to
     for i in items:     # goes through each nested list
         if len(i) == 2: # checks if the list has a length of 2 items
             actualShortList.append(i) # appends the list to the new variable
@@ -51,26 +51,26 @@ def ascending_pairs(items: list[list[int]]) -> list[list[int]]:
     return newListPair # returns the new list
 
         
-    # TODO: Purpose: describe what this function computes.
-    # TODO: Input(s): explain each parameter.
-    # TODO: Output: explain what the function returns.
+    # TODO: Purpose: creates a list of nested lists that do not have any list pairs in descending order
+    # TODO: Input(s): list of nested lists.
+    # TODO: Output: returns a list of nested pairs, with no pairs in descending order
     # TODO: Replace this exception with your implementation.
     raise NotImplementedError("Part 3:implement ascending_pairs")
 
 
 # Part 4: add_prices
 def add_prices(first: data.Price, second: data.Price) -> data.Price:
-    totalDollar = first.dollars + second.dollars
-    totalCents = first.cents + second.cents
-    if totalCents >= 100:
-        totalCents -= 100
-        totalDollar += 1
-    return data.Price(totalDollar,totalCents)
+    totalDollar = first.dollars + second.dollars #adds the dollar amount of the first and second price objects
+    totalCents = first.cents + second.cents #adds cent ammount for the first and second price object
+    if totalCents >= 100: #checks if the total cents is greater than 100
+        totalCents -= 100 #if it passes, it goes down 100 cents
+        totalDollar += 1 #adds dollar to total price
+    return data.Price(totalDollar,totalCents) #returns a new price object, representing the total price in dollars and cents
 
 
-    # TODO: Purpose: describe what this function computes.
-    # TODO: Input(s): explain each parameter.
-    # TODO: Output: explain what the function returns.
+    # TODO: Purpose: adds prices of two price objects
+    # TODO: Input(s): first and second are price objects with dollar and cent amounts
+    # TODO: Output: adds both dollars and cent amounts from both objects, while also adding a dollar if cent is greater than 100
     # TODO: Replace this exception with your implementation.
     raise NotImplementedError("Part 4: implement add_prices")
 
@@ -80,9 +80,9 @@ def rectangle_area(rectangle: data.Rectangle) -> float:
     height = rectangle.top_left.y - rectangle.bottom_right.y
     width = rectangle.bottom_right.x - rectangle.top_left.x
     return sqrt((height * width) ** 2 )
-    # TODO: Purpose: describe what this function computes.
-    # TODO: Input(s): explain each parameter.
-    # TODO: Output: explain what the function returns.
+    # TODO: Purpose: calculates area of a rectangle
+    # TODO: Input(s): Rectangle class with 2 points, representing top left corner and bottom right corner
+    # TODO: Output: returns the area of the rectangle based on the two points
     # TODO: Replace this exception with your implementation.
     raise NotImplementedError("Part 5: implement rectangle_area")
 
@@ -96,9 +96,9 @@ def books_by_author(author: str, books: list[data.Book]) -> list[data.Book]:
                 bookList.append(i.title)
     return bookList
                 
-    # TODO: Purpose: describe what this function computes.
-    # TODO: Input(s): explain each parameter.
-    # TODO: Output: explain what the function returns.
+    # TODO: Purpose: computes and creates a list of books by a chosen author
+    # TODO: Input(s): a list of book objects
+    # TODO: Output: returns a list of books that were created by a chosen author
     # TODO: Replace this exception with your implementation.
     raise NotImplementedError("Part 6: implement books_by_author")
 
@@ -110,16 +110,28 @@ def circle_bound(rectangle: data.Rectangle) -> data.Circle:
     diameter = sqrt(((rectangle.bottom_right.x - rectangle.top_left.x)**2) + ((rectangle.bottom_right.y - rectangle.top_left.y)**2))
 
     return data.Circle((rectangleCenterX, rectangleCenterY), diameter/2)
-    # TODO: Purpose: describe what this function computes.
-    # TODO: Input(s): explain each parameter.
-    # TODO: Output: explain what the function returns.
+    # TODO: Purpose: calculates the center and radius of a circle that represents the smallest circle enclosing the rectangle
+    # TODO: Input(s): a rectangle class
+    # TODO: Output: returns and creates a circle class that has the coordinates (x,y) of the center of the rectangle, and the radius of the circle based on the distance between the corners divided by 2
     # TODO: Replace this exception with your implementation.
     raise NotImplementedError("Part 7: implement circle_bound")
 
 # Part 8: below_pay_average
 def below_pay_average(employees: list[data.Employee]) -> list[str]:
-    # TODO: Purpose: describe what this function computes.
-    # TODO: Input(s): explain each parameter.
-    # TODO: Output: explain what the function returns.
+    if len(employees) == 0:
+        return None
+    total = 0
+    employeeList = []
+    for employee in employees:
+        total += employee.pay_rate
+    average = total/len(employees)
+    for employee in employees:
+        if employee.pay_rate < average:
+            employeeList.append(employee.name)
+    return employeeList
+
+    # TODO: Purpose: computes the average pay rate across all employees and lists the names of employees under that average
+    # TODO: Input(s): employees: a list of employee classes and their attributes
+    # TODO: Output: returns a list that shows which employee is under the pay average of all employees
     # TODO: Replace this exception with your implementation.
     raise NotImplementedError("Part 8: implement below_pay_average")
